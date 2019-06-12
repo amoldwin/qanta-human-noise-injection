@@ -12,4 +12,8 @@ We trained using data that contained human answers from Protobowl. We also modif
 <b>Preprocessing</b><br/>
 
 In the "preprocessing" folder we have included a bash script to download the 5gb protobowl log file.We have also included the necessary scripts to extract the relevant data and store it in a JSON file accessible to our training script. These files condense the large protobowl.log file by consolidating repeat entries and associating human guesses with Wikipedia page titles. 
-We attempted to deal with the issue of misspelled and ambiguous human guesses by mapping each guess seen in the log file to the "correct" answer for which it was most frequently marked correct:<br/><br/>
+ We attempted to deal with the issue of misspelled and ambiguous human guesses by mapping each guess seen in the log file to the "correct" answer for which it was most frequently marked correct:<br/><br/>
+As a next step, we would like to use context-based disambiguation to disambiguate guesses which may not be mapped correctly using our current scheme:<br/>
+![alt text](http://url/to/img.png)
+ <br/>
+ <br/>
