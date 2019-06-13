@@ -24,4 +24,4 @@ We included the python file to train a DAN neural model. For faster running time
  <br/>
 <b>Loss Function</b><br/>
 To give the most weight to the correct answers but also take into account the human guesses, we used the following loss function:<br/>
- <i>Loss = CrossEntropyLoss(model, answer) * (1 - HumanGuessFrequency)</i><br/>
+ <center><i>Loss = CrossEntropyLoss(model, answer) * (1 - HumanGuessFrequency)</i></center><br/>
