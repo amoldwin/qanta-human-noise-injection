@@ -19,4 +19,9 @@ As a next step, we would like to use context-based disambiguation to disambiguat
 ![bad mapping](https://github.com/amoldwin/qanta-human-noise-injection/blob/master/Images/mapping_bad.png?raw=true)
 
  <br/>
+ <b>Training and Model</b><br/>
+We included the python file to train a DAN neural model. For faster running times, we recommend running this on a machine with access to a GPU, or otherwise using a cloud service with a GPU option.
  <br/>
+<b>Loss Function</b><br/>
+To give the most weight to the correct answers but also take into account the human guesses, we used the following loss function:<br/>
+ <i>Loss = CrossEntropyLoss(model, answer) * (1 - HumanGuessFrequency)</i><br/>
