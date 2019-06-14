@@ -11,9 +11,17 @@ We trained using data that contained human answers from Protobowl. We also modif
 
 <b>Preprocessing</b><br/>
 
-In the "preprocessing" folder we have included a bash script to download the 5gb protobowl log file.We have also included the necessary scripts to extract the relevant data and store it in a JSON file accessible to our training script. These files condense the large protobowl.log file by consolidating repeat entries and associating human guesses with Wikipedia page titles. 
- We attempted to deal with the issue of misspelled and ambiguous human guesses by mapping each guess seen in the log file to the "real" answer for which it was most frequently marked correct:<br/><br/>
-As a next step, we would like to use context-based disambiguation to disambiguate guesses which may not be mapped correctly using our current scheme:<br/>
-![alt text](http://url/to/img.png)
+In the "preprocessing" folder we have included a linux script to download the 5gb protobowl log file.We have also included the necessary scripts to extract the relevant data and store it in a JSON file accessible to our training script. These files condense the large protobowl.log file by consolidating repeat entries and associating human guesses with Wikipedia page titles. 
+ We attempted to deal with the issue of misspelled and ambiguous human guesses by mapping each guess seen in the log file to the "real" answer for which it was most frequently marked correct:<br/>
+![good mapping](https://github.com/amoldwin/qanta-human-noise-injection/blob/master/Images/mapping_good.png?raw=true)
+<br/><br/>
+As a next step, we would like to use context-based disambiguation to disambiguate guesses which were not mapped correctly using our current scheme:<br/>
+![bad mapping](https://github.com/amoldwin/qanta-human-noise-injection/blob/master/Images/mapping_bad.png?raw=true)
+
  <br/>
+ <b>Training and Model</b><br/>
+We included the python file to train a DAN neural model. For faster running times, we recommend running this on a machine with access to a GPU, or otherwise using a cloud service with a GPU option.
  <br/>
+<b>Loss Function</b><br/>
+To give the most weight to the correct answers but also take into account the human guesses, we used the following loss function:<br/>
+ <p style="text-align: center;"><i>Loss = CrossEntropyLoss(model, answer) * (1 - HumanGuessFrequency)</i></p><br/>
