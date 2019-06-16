@@ -33,4 +33,10 @@ To give the most weight to the correct answers but also take into account the hu
 
 <b>Experiment with Curriculum Learning and Contrastive Estimation</b> Possibly switch to negativelly counting human-incorrect guesses after a certain accuracy is achieved. This threshold could be learned or tuned as a hyperparameter.<br/>
 
+<b>Tune DAN learning rate, use proper vectorizer</b> Increasing the learning rate should give better results than we have achieved so far. Also use word2vec or glove instead of tfidfvectorizer. <br/>
+
+<b>Try with bi-lstm and RNN</b> Obviously the purpose of this project is to explore a research question, not to achieve perfect question-answering accuracy. However, it might be reassuring to see if we can try this with a few other types of models to see if the effect is similar.
+
+<b>Edit the QANTA Baseline System so it can use our model</b> Eventually we would like this to be a proper submission which can be evaluated using CodaLab at leaderboard.qanta.org<br/> 
+
  
