@@ -20,8 +20,23 @@ As a next step, we would like to use context-based disambiguation to disambiguat
 
  <br/>
  <b>Training and Model</b><br/>
-We included the python file to train a DAN neural model. For faster running times, we recommend running this on a machine with access to a GPU, or otherwise using a cloud service with a GPU option.
+We included the python file to train a DAN neural model. For faster running times, we recommend running this on a machine with access to a GPU, or otherwise using a cloud service with a GPU option. 
  <br/>
 <b>Loss Function</b><br/>
 To give the most weight to the correct answers but also take into account the human guesses, we used the following loss function:<br/>
  <p style="text-align: center;"><i>Loss = CrossEntropyLoss(model, answer) * (1 - HumanGuessFrequency)</i></p><br/>
+ 
+ Next Steps:<br/>
+ <b>Improve tools for error analysis: </b> We would like a quantitative measure of whether including the Protobowl.log data improves our accuracy on certain types of questions.  For example, we would like to see whether our model is making fewer egregious mistakes, such as guessing the entirely wrong category of answer (e.g. The Pacific ocean when the real answer was George Washington). For this we propose cross-referencing a type-of-entity database to check whether the answers are more likely to be of the right "type" when using our system.<br/><br/> Another option would be to use the wikipedia2vec vectorizer on our answer classes and use the cosine similarity as a measure of how far-off our guesses are from the true answers.
+ 
+<b>Disambiguating guesses mapping:</b> Incorporating context-based disambiguation to better map human guesses to answer classes. Alternatively, we could make a one-to-many mapping for this instead of one-to-one and calculate the model loss based on whether the guess class matched any of the possible mappings for that question's guesses.<br/>
+
+<b>Experiment with Curriculum Learning and Contrastive Estimation</b> Possibly switch to negatively counting human-incorrect guesses after a certain accuracy is achieved. This threshold could be learned or tuned as a hyperparameter.<br/>
+
+<b>Tune DAN learning rate, use proper vectorizer</b> Increasing the learning rate should give better results than we have achieved so far. Also use word2vec or glove instead of tfidfvectorizer. <br/>
+
+<b>Try with bi-lstm and RNN</b> Obviously the purpose of this project is to explore a research question, not to achieve perfect question-answering accuracy. However, it might be reassuring to see if we can try this with a few other types of models to see if the effect is similar.
+
+<b>Edit the QANTA Baseline System so it can use our model</b> Eventually we would like this to be a proper submission which can be evaluated using CodaLab at leaderboard.qanta.org<br/> 
+
+ 
