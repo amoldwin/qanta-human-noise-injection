@@ -31,7 +31,7 @@ To give the most weight to the correct answers but also take into account the hu
  
 <b>Disambiguating guesses mapping:</b> Incorporating context-based disambiguation to better map human guesses to answer classes. Alternatively, we could make a one-to-many mapping for this instead of one-to-one and calculate the model loss based on whether the guess class matched any of the possible mappings for that question's guesses.<br/>
 
-<b>Experiment with Curriculum Learning and Contrastive Estimation</b> Possibly switch to negativelly counting human-incorrect guesses after a certain accuracy is achieved. This threshold could be learned or tuned as a hyperparameter.<br/>
+<b>Experiment with Curriculum Learning and Contrastive Estimation</b> Possibly switch to negatively counting human-incorrect guesses after a certain accuracy is achieved. This threshold could be learned or tuned as a hyperparameter.<br/>
 
 <b>Tune DAN learning rate, use proper vectorizer</b> Increasing the learning rate should give better results than we have achieved so far. Also use word2vec or glove instead of tfidfvectorizer. <br/>
 
