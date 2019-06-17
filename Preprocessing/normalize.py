@@ -17,7 +17,7 @@ for entry in human_data["questions"]:
 
     for guess in human_data["questions"][entry]["guesses"]:
 
-        if human_data["questions"][entry]["guesses"][guess] > numcorrect*0 and guess != answer :
+        if human_data["questions"][entry]["guesses"][guess] > numcorrect*0.02 :
 
             total += human_data["questions"][entry]["guesses"][guess]
         else:
@@ -26,5 +26,5 @@ for entry in human_data["questions"]:
     for guess in filteredData["questions"][entry]["guesses"]:
         filteredData["questions"][entry]["guesses"][guess] /= total
 
-with open('threshold0percentNotIncludingCorrect.json', 'w') as f:
+with open('trainingData.json', 'w') as f:
     f.write(json.dumps(filteredData))
