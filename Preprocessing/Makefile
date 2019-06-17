@@ -1,8 +1,12 @@
-protobowl.log:
-	wget https://www.google.com/url?q=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fpinafore-us-west-2%2Fqanta-jmlr-datasets%2Fprotobowl-042818.log&sa=D&sntz=1&usg=AFQjCNG5M0eFv-1auQf4Oop-HC-BM7S4bQ
-	mv protobowl-042818.log protobowl.log
+wget https://s3-us-west-2.amazonaws.com/pinafore-us-west-2/qanta-jmlr-datasets/protobowl-042818.log	mv protobowl-042818.log protobowl.log
 
-	python convertQanta.py
+ 	wget https://s3-us-west-2.amazonaws.com/pinafore-us-west-2/qanta-jmlr-datasets/qanta.train.2018.04.18.json
+	mv qanta.train.2018.04.18.json qanta.train.json
+	wget https://s3-us-west-2.amazonaws.com/pinafore-us-west-2/qanta-jmlr-datasets/qanta.dev.2018.04.18.json
+	mv qanta.dev.2018.04.18.json qanta.dev.json
+	wget https://s3-us-west-2.amazonaws.com/pinafore-us-west-2/qanta-jmlr-datasets/qanta.test.2018.04.18.json
+	mv qanta.test.2018.04.18.json qanta.test.json	
+python convertQanta.py
 	python guessToQanta.py
 	python consolidate.py
 	python normalize.py
