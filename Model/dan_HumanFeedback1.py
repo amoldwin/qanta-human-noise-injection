@@ -371,9 +371,9 @@ class DanModel(nn.Module):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Question Type')
     parser.add_argument('--no-cuda', action='store_true', default=False)
-    parser.add_argument('--train-file', type=str, default='../consolidated5.json')
-    parser.add_argument('--dev-file', type=str, default='../qanta.dev.json')
-    parser.add_argument('--test-file', type=str, default='../qanta.test.json')
+    parser.add_argument('--train-file', type=str, default='../Preprocessing/trainingData.json')
+    parser.add_argument('--dev-file', type=str, default='../Preprocessing/qanta.dev.json')
+    parser.add_argument('--test-file', type=str, default='../Preprocessing/qanta.test.json')
     parser.add_argument('--batch-size', type=int, default=128)
     parser.add_argument('--num-epochs', type=int, default=100)
     parser.add_argument('--grad-clipping', type=int, default=5)
