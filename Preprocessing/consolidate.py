@@ -57,5 +57,5 @@ with open('protobowl.log','r') as f:
         
 
         
-    outfile = open('consolidated4Test.json', 'w+')
+    outfile = open('consolidated4.json', 'w+')
     json.dump(reformatted_data, outfile)
