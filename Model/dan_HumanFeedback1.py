@@ -42,7 +42,7 @@ def load_data(filename, lim):
         else:
             questions = json.load(json_data)["questions"]
         for q in questions:
-            if filename == "../consolidated5.json":
+            if filename == "../Preprocessing/trainingData.json":
                 q = questions[q]
                 q_text = nltk.word_tokenize(q['text'])
                 label = q['answer']
