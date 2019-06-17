@@ -2,7 +2,7 @@ import json
 import operator
 
 
-with open('qanta.train.2018.04.18.json','r') as f:
+with open('qanta.train.json','r') as f:
         reformatted_data = {}
         for line in f:
                 entry = json.loads(line)
