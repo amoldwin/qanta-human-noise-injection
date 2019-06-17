@@ -3,9 +3,10 @@ import operator
 
 
 with open('protobowl.log','r') as f:
-        with open('byIdQantaTest.json','r') as qanta:
+        with open('byIdQanta.json','r') as qanta:
                 for line in qanta:
                         qantalist = json.loads(line)
+                print(qantalist['58b0b88570b915409571a07d'])
 
                 reformatted_data = {"questions": {}}
                 i = 1
@@ -22,7 +23,5 @@ with open('protobowl.log','r') as f:
                             reformatted_data[guess] = qantalist[qid]
 
                     
-                outfile = open('GuessesToQantaAnswersMappingTest.json', 'w+')
+                outfile = open('GuessesToQantaAnswersMapping.json', 'w+')
                 json.dump(reformatted_data, outfile)
-                
-

@@ -2,7 +2,7 @@ import json
 
 with open('byIdQantaTest.json','r') as f:
     qanta = json.load(f)
-with open('GuessesToQantaAnswersMappingTest.json','r') as f:
+with open('GuessesToQantaAnswersMapping.json','r') as f:
     answer_map = json.load(f)
     answer_map.pop("questions")
 with open('protobowl.log','r') as f:
