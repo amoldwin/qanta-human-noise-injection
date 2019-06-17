@@ -1,6 +1,6 @@
 import json
 
-with open('byIdQantaTest.json','r') as f:
+with open('byIdQanta.json','r') as f:
     qanta = json.load(f)
 with open('GuessesToQantaAnswersMapping.json','r') as f:
     answer_map = json.load(f)
