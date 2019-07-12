@@ -16,7 +16,7 @@ kPAD = '<pad>'
 MODEL_PATH = 'cucumber_dan.pt'
 PARAM_PATH = 'cucumber_params.pickle'
 
-# You don't need to change this funtion
+# TODO
 def class_labels(data):
     class_to_i = {}
     i_to_class = {}
@@ -29,7 +29,7 @@ def class_labels(data):
             i+=1
     return class_to_i, i_to_class
 
-# You don't need to change this funtion
+# TODO
 def load_data(filename, lim):
     """
     load the json file into data list
@@ -57,7 +57,7 @@ def load_data(filename, lim):
                 data.append((q_text, label))
     return data
 
-# You don't need to change this funtion
+# TODO
 def load_words(exs):
     """
     vocabuary building
@@ -85,7 +85,7 @@ class QuestionDataset(Dataset):
     Pytorch data class for questions
     """
 
-    ###You don't need to change this funtion
+    ###TODO
     def __init__(self, examples, word2ind, num_classes, class2ind=None, three=False):
         self.questions = []
         self.labels = []
@@ -130,7 +130,7 @@ class QuestionDataset(Dataset):
 
         self.word2ind = word2ind
     
-    ###You don't need to change this funtion
+    ###TODO
     def __getitem__(self, index):
         if self.three:
             return self.vectorize(self.questions[index], self.word2ind), \
@@ -139,7 +139,7 @@ class QuestionDataset(Dataset):
              return self.vectorize(self.questions[index], self.word2ind), \
               self.labels[index]
     
-    ###You don't need to change this funtion
+    ###TODO
     def __len__(self):
         return len(self.questions)
 
@@ -169,7 +169,7 @@ class QuestionDataset(Dataset):
         return vec_text
 
     
-###You don't need to change this funtion
+###TODO
 
 def batchify(batch):
     """
@@ -255,7 +255,7 @@ def train(args, model, train_data_loader, dev_data_loader, accuracy, device):
     epoch_loss_total = 0
     start = time.time()
 
-    #### modify the following code to complete the training funtion
+    #### TODO
 
     for idx, batch in enumerate(train_data_loader):
         question_text = batch['text'].to(device)
@@ -263,7 +263,7 @@ def train(args, model, train_data_loader, dev_data_loader, accuracy, device):
         labels = batch['labels']
         guesses =  batch['guesses']
 
-        #### Your code here
+        #### TODO
         model.zero_grad()
         out = model(question_text, question_len) #in video, it's model(batches), where "batches" was not specified in the code
         loss = criterion(out, labels)
@@ -281,7 +281,7 @@ def train(args, model, train_data_loader, dev_data_loader, accuracy, device):
         #Variation - smoothing by adding 5 and dividing by 6 (1-mult+5)/6 or something of that type (+x, /(x+1))
         loss.backward()
         optimizer.step()
-        ### END of my code
+        ### TODO
 
         clip_grad_norm_(model.parameters(), args.grad_clipping) 
         print_loss_total += loss.data.cpu().numpy()
@@ -331,10 +331,10 @@ class DanModel(nn.Module):
         # layers / functions to consider are Dropout, ReLU. 
         # For test cases, the network we consider is - linear1 -> ReLU() -> Dropout(0.5) -> linear2
 
-        #### Your code here
+        #### TODO
         self.classifier = nn.Sequential(self.linear1, nn.ReLU(), nn.Dropout(nn_dropout), self.linear2)
         self._softmax = nn.Softmax()
-        ### END of my code
+        ### TODO
         
        
     def forward(self, input_text, text_len, is_prob=False):
